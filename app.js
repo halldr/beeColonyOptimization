@@ -1,14 +1,7 @@
-(function(angular) {
-'use strict';
+// Initialize myApp as angularjs app module
+var myApp = angular.module('myApp', ['ngRoute']);
 
-// Initialize optApp as angularjs app module
-var optApp = angular.module('optApp', ['ngRoute'])
-
-.controller('mainCtrl', ['$scope', function($scope) {
-  $scope.message = 'WE AREN\'T DEAD YET!!!!'
-}])
-
-.config(function($routeProvider) {
+myApp.config(function($routeProvider) {
   $routeProvider
     .when('/default', {
       templateUrl: 'views/default.html',
@@ -25,24 +18,25 @@ var optApp = angular.module('optApp', ['ngRoute'])
     .when('/testView', {
       templateUrl: 'views/testView.html',
       controller: 'testViewCtrl'
-    })
-    .otherwise({redirectTo: '/'});
-})
+    });
+});
 
+myApp.controller('mainCtrl', function($scope) {
+  $scope.message = 'WE AREN\'T DEAD YET!!!!'
+});
 
-.controller('alphaCtrl', function ($scope) {
+myApp.controller('alphaCtrl', function ($scope) {
   $scope.message = 'Hello everyone, ready to optimize?'
-})
+});
 
-.controller('v1Ctrl', function ($scope) {
+myApp.controller('v1Ctrl', function ($scope) {
   $scope.message = 'View1 Message!'
-})
+});
 
-.controller('v2Ctrl', function ($scope) {
+myApp.controller('v2Ctrl', function ($scope) {
   $scope.message = 'View2 Message!'
-})
+});
 
-.controller('testViewCtrl', function ($scope) {
+myApp.controller('testViewCtrl', function ($scope) {
   $scope.message = 'TestView Message!'
 });
-})(window.angular);
