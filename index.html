@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" dir="ltr">
+<html lang="en" class="no-js" dir="ltr">
   
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <link rel="stylesheet" href="css/foundation.css">
+    <title>Class Schedule Optimizer</title>
+    <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <script src="js/angular/angular-resource.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/what-input.js"></script>
+    <script src="js/foundation.js"></script>
+    <script src="js/app.js"></script>
   </head>
   
-  <body>
-  lol
+  <body ng-app="optApp">
+    <div>
+      <div class="button-group" ng-controller="mainCtrl">
+      <button class="hollow button" href="#">Oooh Button</button>
+      <button class="hollow alert button" href="#">{{message}}</button>
+      <button class="hollow success button" href="#">Oooh Button</button>
+      <button class="hollow warning button" href="#">Oooh Button</button>
+      </div>
+    </div>
+    
+    <div class="ng-view">
+    </div>
+    
   </body>
-  
 </html>
