@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="css/foundation.min.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/normalize.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+  <script src="js/angular/angular.js"></script>
+  <script src="js/angular/angular-route.js"></script>
   <script src="js/angular/angular-resource.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/foundation.js"></script>
@@ -20,12 +20,14 @@
 <body ng-controller="mainCtrl">
   <div id="main">
     
-    <div class="button-group">
-    <a href="#view1"><button class="hollow button">Oooh Button</button></a>
-    <a href="#view2"><button class="hollow alert button">{{message}}</button></a>
-    <a href="#testView"><button class="hollow success button">Oooh Button</button></a>
-    <a href="#default"><button class="hollow warning button">Oooh Button</button></a>
-    </div>
+    <ul class="menu">
+    
+    <li><a href="#view1">asdf</a></li>
+    <li><a href="#view2">{{message}}</a></li>
+    <li><a href="#testView">Oooh Button</button></a></li>
+    <li><a href="#default">Oooh Button</button></a></li>
+
+    </ul>
     
     <div ng-view></div>
     
