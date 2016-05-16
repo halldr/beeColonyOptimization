@@ -1,7 +1,7 @@
-// Initialize myApp as angularjs app module
-var myApp = angular.module('myApp', ['ngRoute']);
+// Initialize optimizeApp as angularjs app module
+var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 
-myApp.config(function($routeProvider) {
+.config(function($routeProvider) {
   $routeProvider
     .when('/default', {
       templateUrl: 'views/default.html',
@@ -19,24 +19,24 @@ myApp.config(function($routeProvider) {
       templateUrl: 'views/testView.html',
       controller: 'testViewCtrl'
     });
-});
+})
 
-myApp.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope) {
   $scope.message = 'WE AREN\'T DEAD YET!!!!'
-});
+})
 
-myApp.controller('alphaCtrl', function ($scope) {
+.controller('alphaCtrl', function ($scope) {
   $scope.message = 'Hello everyone, ready to optimize?'
-});
+})
 
-myApp.controller('v1Ctrl', function ($scope) {
+.controller('v1Ctrl', function ($scope) {
   $scope.message = 'View1 Message!'
-});
+})
 
-myApp.controller('v2Ctrl', function ($scope) {
+.controller('v2Ctrl', function ($scope) {
   $scope.message = 'View2 Message!'
-});
+})
 
-myApp.controller('testViewCtrl', function ($scope) {
+.controller('testViewCtrl', function ($scope) {
   $scope.message = 'TestView Message!'
 });
