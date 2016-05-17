@@ -25,7 +25,7 @@ var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 })
 
 .controller('mainCtrl', function($scope) {
-  $scope.message = 'WE AREN\'T DEAD YET!!!!'
+  $scope.data = 'WE AREN\'T DEAD YET!!!!'
 })
 
 .controller('alphaCtrl', function ($scope) {
@@ -38,6 +38,11 @@ var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 
 .controller('v2Ctrl', function ($scope) {
   $scope.message = 'View2 Message!'
+  $scope.alertMessage = 'ALERTTTT!'
+  $scope.toggleValue = 'false'
+  $scope.toggle1 = function () {
+    $scope.toggleValue = !$scope.toggleValue;
+  }
 })
 
 .controller('testViewCtrl', function ($scope) {

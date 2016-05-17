@@ -1,5 +1,11 @@
 <!--view2.html-->
 
-<div>
+<div ng-show="toggleValue" class="success callout">
   {{message}}
+</div>
+<div ng-hide="toggleValue" class="alert callout">
+  {{alertMessage}}
+</div>
+<div>
+<button type="button" ng-click="toggle1()" class="button">Click Me!</button>
 </div>

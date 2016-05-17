@@ -22,8 +22,8 @@
   
 <div class id="main"> <!--Main container-->
     
-  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
+  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
+    <button class="menu-icon dark" type="button" data-toggle></button>
     <div class="title-bar-title">Menu</div>
   </div>
   
@@ -31,45 +31,46 @@
     <div class="top-bar-left">
       <ul class="dropdown menu align-center" data-dropdown-menu>
         <li class="menu-text">Class Schedule Optimizer</li>
-        <li>
-          <a href="#view1">One</a>
+        <li><a href="#default">Home</a></li>
+        <li><a href="#view1">One</a>
           <ul class="menu">
             <li><a href="#view1">One</a></li>
             <li><a href="#view2">Two</a></li>
             <li><a href="#default">Home</a></li>
+            <li><a href="#testView">Test View</a></li>
           </ul>
         </li>
         <li><a href="#view2">Two</a></li>
-        <li><a href="#default">Home</a></li>
+        <li><a href="#testView">Test View</a></li>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu align-center">
-        <li><input type="search" placeholder="Search"></li>
+        <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
         <li><button type="button" class="button">Search</button></li>
       </ul>
     </div>
   </div>
     
-  <div class="expanded row" id="row1" style="height:90vh">
-    <div class="large-3 medium-3 columns" style="padding-left:0px">
-    <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(230,230,230)" id="main-menu">
-      <li><a href="#">Views</a>
-        <ul class="vertical menu">
-          <li><a href="#view1">View 1</a></li>
-          <li><a href="#view2">View 2</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Alternate</a>
-        <ul class="vertical menu">
-          <li><a href="#default">Home</a></li>
-          <li><a href="#testView">Test View</a></li>
-        </ul>
-      </li>
-    </ul>
+  <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row pulls down 90% of window-->
+    <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
+      <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(240,240,240);" id="main-menu">
+        <li><a href="#">Views</a>
+          <ul class="vertical menu">
+            <li><a href="#view1">View 1</a></li>
+            <li><a href="#view2">View 2</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Alternate</a>
+          <ul class="vertical menu">
+            <li><a href="#default">Home</a></li>
+            <li><a href="#testView">Test View</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
     
-    <div class="columns" style="padding-left:0px">
+    <div class="columns">
       <div ng-view style="margin:5px"></div> <!--Dynamic view container-->
     </div>
     
