@@ -18,6 +18,9 @@ var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
     .when('/testView', {
       templateUrl: 'views/testView.html',
       controller: 'testViewCtrl'
+    })
+    .otherwise({
+      redirectTo:'/default'
     });
 })
 
@@ -26,7 +29,7 @@ var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 })
 
 .controller('alphaCtrl', function ($scope) {
-  $scope.message = 'Hello everyone, ready to optimize?'
+  $scope.message = 'Click View 1 to view basic layout example!'
 })
 
 .controller('v1Ctrl', function ($scope) {
