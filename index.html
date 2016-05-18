@@ -52,7 +52,7 @@
     </div>
   </div>
     
-  <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row pulls down 90% of window-->
+  <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
     <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
       <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(240,240,240);" id="main-menu"> <!--Sidebar Menu-->
         <li><a href="#">Views</a>
@@ -69,13 +69,9 @@
         </li>
       </ul>
     </div>
-    
-    <div class="columns">
-      <div ng-view style="margin:5px"></div> <!--Dynamic view container-->
-    </div>
-    
-
-    
+     
+    <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
+     
   </div> <!--row1-->
   
   <div id="version">
