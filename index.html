@@ -9,10 +9,13 @@
   <link rel="stylesheet" href="css/foundation.min.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/normalize.css">
+  <script src="js/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="js/angular/angular.js"></script>
   <script src="js/angular/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
   <script src="js/angular/angular-resource.js"></script>
-  <script src="js/jquery.js"></script>
+  
   <script src="js/foundation.js"></script>
   
   <script src="app.js"></script>
@@ -54,26 +57,25 @@
     
   <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
     <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
-      <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(240,240,240);" id="main-menu"> <!--Sidebar Menu-->
-        <li><a href="#">Views</a>
-          <ul class="vertical menu">
-            <li><a href="#view1">View 1</a></li>
-            <li><a href="#view2">View 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Alternate</a>
-          <ul class="vertical menu">
-            <li><a href="#default">Home</a></li>
-            <li><a href="#testView">Test View</a></li>
-          </ul>
-        </li>
-      </ul>
+      
+      <div>
+      <h4 align="center">Parameters</h4>
+      </div>
       <hr>
-      <ul class="button-group round even-3">
-        <li><a href="#" class="button">Play</a></li>
-        <li><a href="#" class="button">Pause</a></li>
-        <li><a href="#" class="button">Next</a></li>
+      <div ng-controller="sortableController"> <!--Sortable Parameters-->
+        <ul ui-sortable="sortableOptions" class="connectedList" ng-model="list1">
+          <li ng-repeat="item in list1" class="secondary hollow button" style="margin-bottom:3px;width:100%">{{item}}</li>
+        </ul>     
+      </div>
+      
+      <hr>
+      
+      <ul class="stacked-for-small button-group">
+        <a href="#" class="button">Play</a>
+        <a href="#" class="button">Pause</a>
+        <a href="#" class="button">Next</a>
       </ul>
+  
     </div>
      
     <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
