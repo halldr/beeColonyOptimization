@@ -1,5 +1,8 @@
 // Initialize optimizeApp as angularjs app module
-var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
+var optimizeApp = angular.module('optimizeApp', [
+  'ngRoute',
+  'ui'
+])
 
 .config(function($routeProvider) {
   $routeProvider
@@ -47,4 +50,12 @@ var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 
 .controller('testViewCtrl', function ($scope) {
   $scope.message = 'TestView Message!'
+})
+
+.controller('sortableController', function ($scope) {
+    $scope.list1 = ["One", "Two", "Three", "Four", "Five", "Six"];
+    $scope.list2 = ["A", "B", "C", "D", "E", "F"];
+    $scope.sortableOptions = {
+        connectWith: '.connectedList'
+    };
 });
