@@ -1,95 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="optimizeApp" class="no-js" dir="ltr">
-<head>
-  
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Schedule Optimizer</title>
-  <link rel="stylesheet" href="css/foundation.min.css">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <script src="js/angular/angular.js"></script>
-  <script src="js/angular/angular-route.js"></script>
-  <script src="js/angular/angular-resource.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/foundation.js"></script>
-  
-  <script src="app.js"></script>
-</head>
-  
-<body ng-controller="mainCtrl">
-  
-<div class id="main"> <!--Main container-->
-    
-  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
-    <button class="menu-icon dark" type="button" data-toggle></button>
-    <div class="title-bar-title">Menu</div>
-  </div>
-  
-  <div class="top-bar" id="main-menu">
-    <div class="top-bar-left">
-      <ul class="dropdown menu align-left" data-dropdown-menu>
-        <li class="menu-text">Class Schedule Optimizer</li>
-        <li><a href="#default">Home</a></li>
-        <li><a href="#view1">One</a>
-          <ul class="menu">
-            <li><a href="#view1">One</a></li>
-            <li><a href="#view2">Two</a></li>
-            <li><a href="#default">Home</a></li>
-            <li><a href="#testView">Test View</a></li>
-          </ul>
-        </li>
-        <li><a href="#view2">Two</a></li>
-        <li><a href="#testView">Test View</a></li>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="menu align-right">
-        <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
-        <li><button type="button" class="button">Search</button></li>
-      </ul>
-    </div>
-  </div>
-    
-  <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
-    <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
-      <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(240,240,240);" id="main-menu"> <!--Sidebar Menu-->
-        <li><a href="#">Views</a>
-          <ul class="vertical menu">
-            <li><a href="#view1">View 1</a></li>
-            <li><a href="#view2">View 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Alternate</a>
-          <ul class="vertical menu">
-            <li><a href="#default">Home</a></li>
-            <li><a href="#testView">Test View</a></li>
-          </ul>
-        </li>
-      </ul>
-      <hr>
-      <ul class="button-group round even-3">
-        <li><a href="#" class="button">Play</a></li>
-        <li><a href="#" class="button">Pause</a></li>
-        <li><a href="#" class="button">Next</a></li>
-      </ul>
-    </div>
-     
-    <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
-     
-  </div> <!--row1-->
-  
-  <div id="version">
-    Version 0.1
-  </div>
-    
+    <head>
 
-</div> <!--Main container-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Class Schedule Optimizer</title>
+        <link rel="stylesheet" href="css/foundation.min.css">
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <script src="js/angular/angular.js"></script>
+        <script src="js/angular/angular-route.js"></script>
+        <script src="js/angular/angular-resource.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/foundation.js"></script>
 
-<script>
-  $(document).foundation(); // Initializes foundation's javascript, leave this here.
-</script> 
-    
-</body>
+        <script src="app.js"></script>
+    </head>
+
+    <body ng-controller="mainCtrl">
+
+        <div class id="main"> <!--Main container-->
+
+            <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
+                <button class="menu-icon dark" type="button" data-toggle></button>
+                <div class="title-bar-title">Menu</div>
+            </div>
+
+            <div class="top-bar" id="main-menu">
+                <div class="top-bar-left">
+                    <ul class="dropdown menu align-left" data-dropdown-menu>
+                        <li class="menu-text">Class Schedule Optimizer</li>
+                        <li><a href="#default">Home</a></li>
+                        <li><a href="#view1">One</a>
+                            <ul class="menu">
+                                <li><a href="#view1">One</a></li>
+                                <li><a href="#view2">Two</a></li>
+                                <li><a href="#default">Home</a></li>
+                                <li><a href="#testView">Test View</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#view2">Two</a></li>
+                        <li><a href="#testView">Test View</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="menu align-right">
+                        <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
+                        <li><button type="button" class="button">Search</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
+                <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
+                    <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="background-color:rgb(240,240,240);" id="main-menu"> <!--Sidebar Menu-->
+                        <li><a href="#">Views</a>
+                            <ul class="vertical menu">
+                                <li><a href="#view1">View 1</a></li>
+                                <li><a href="#view2">View 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Alternate</a>
+                            <ul class="vertical menu">
+                                <li><a href="#default">Home</a></li>
+                                <li><a href="#testView">Test View</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="button-bar">
+                        <ul class="button-group stack-for-small round " style="list-style-type: none;">
+                            <li><a href="#" class="button ">Play</a></li>
+                            <li><a href="#" class="button ">Pause</a></li>
+                            <li><a href="#" class="button ">Next</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
+                <div id="content" class="large-10 medium-8 small-8 columns" style="text-align: center;">
+                    <div id="schedule" class="row" >
+                        <h2 >Your optimum Schedule</h2>
+                        <image src="pictures/fakeSchedule.png"/>
+                    </div>
+                    <div id="graphs" class="row">
+                        <div class="medium-4 small-4 columns">
+                            <h3>graph1</h3>  
+                            <image src="pictures/fakeGraph1.png"/>
+                        </div>
+                        <div class="medium-4 small-4 columns">
+                            <h3>graph2</h3>  
+                            <image src="pictures/fakeGraph2.png"/>
+                        </div>
+                        <div class="large-4 medium-4 small-4 columns">
+                            <h3>graph3</h3>  
+                            <image src="pictures/fakeGraph3.png"/>
+                        </div>
+                    </div>
+                </div> <!--row1-->
+
+                <div id="version">
+                    Version 0.1
+                </div>
+
+
+            </div> <!--Main container-->
+
+            <script>
+                        $(document).foundation(); // Initializes foundation's javascript, leave this here.
+            </script> 
+
+    </body>
 </html>
