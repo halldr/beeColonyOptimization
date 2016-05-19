@@ -1,9 +1,6 @@
 // Initialize optimizeApp as angularjs app module
 var optimizeApp = angular.module('optimizeApp', ['ngRoute'])
 
-//initialize myAppModule as angularUI Sortable module
-var sortable = angular.module('sortable', ['ui.sortable'])
-
 .config(function($routeProvider) {
   $routeProvider
     .when('/default', {
