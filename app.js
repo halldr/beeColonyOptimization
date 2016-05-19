@@ -53,8 +53,8 @@ var optimizeApp = angular.module('optimizeApp', [
 })
 
 .controller('sortableController', function ($scope) {
-    $scope.list1 = ["One", "Two", "Three", "Four", "Five", "Six"];
-    $scope.list2 = ["A", "B", "C", "D", "E", "F"];
+    $scope.list1 = ["Soonest Graduation Time[G]", "Highest Ranked Professors[P]", "Most Break Time[B]", "Lowest Avg Course Load[C]"];
+    //$scope.list2 = ["A", "B", "C", "D", "E", "F"];
     $scope.sortableOptions = {
         connectWith: '.connectedList'
     };
