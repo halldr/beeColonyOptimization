@@ -56,14 +56,17 @@
       <h4 align="center">Parameters</h4>
       <hr>
       <div ng-controller="sortableController">
-        <ul ui-sortable="sortableOptions" class="connectedList" ng-model="list1">
+        <ul ui-sortable="sortableOptions" class="list" ng-model="list1">
           <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">{{item}}</li>
         </ul>
+        
+        <hr>
+        <h4 align="center">Fitness Function</h4>
+        <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
       </div>
       
-      <hr>
-      <h4>Fitness Function</h4>
-      <p>4[G]+3[P]+2[B]+[C]</p>
+      
+      
       <hr>
       <ul class="stacked-for-small button-group">
         <a href="#" class="button">Play</a>

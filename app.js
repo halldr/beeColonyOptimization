@@ -54,7 +54,10 @@ var optimizeApp = angular.module('optimizeApp', [
 
 .controller('sortableController', function ($scope) {
     $scope.list1 = ["Soonest Graduation Time[G]", "Highest Ranked Professors[P]", "Most Break Time[B]", "Lowest Avg Course Load[C]"];
-    //$scope.list2 = ["A", "B", "C", "D", "E", "F"];
+    $scope.item1Short = $scope.list1[0].substring($scope.list1[0].length-3, $scope.list1[0].length);
+    $scope.item2Short = $scope.list1[1].substring($scope.list1[1].length-3, $scope.list1[1].length);
+    $scope.item3Short = $scope.list1[2].substring($scope.list1[2].length-3, $scope.list1[2].length);
+    $scope.item4Short = $scope.list1[3].substring($scope.list1[3].length-3, $scope.list1[3].length);
     $scope.sortableOptions = {
         connectWith: '.connectedList'
     };
