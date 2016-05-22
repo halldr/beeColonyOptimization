@@ -2757,8 +2757,6 @@ table.hover tr:nth-of-type(even):hover {
   border-radius: 1px; }
 
 .has-tip {
-  border-bottom: dotted 1px #8a8a8a;
-  font-weight: bold;
   position: relative;
   display: inline-block;
   cursor: help; }

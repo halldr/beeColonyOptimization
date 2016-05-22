@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Class Schedule Optimizer</title>
-  <link rel="stylesheet" href="css/foundation.min.css">
+  <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/normalize.css">
   <script src="js/jquery.js"></script>
@@ -23,14 +23,15 @@
   
 <div class id="main"> <!--Main container-->
     
-  <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
+  <!--div class="title-bar" data-responsive-toggle="sideBar" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
     <button class="menu-icon dark" type="button" data-toggle></button>
     <div class="title-bar-title">Menu</div>
-  </div>
+  </div-->
   
-  <div class="top-bar" id="main-menu">
+  <div id="main-menu" class="top-bar">
     <div class="top-bar-left">
       <ul class="dropdown menu align-left" data-dropdown-menu>
+        <li><button class="menu-icon dark" type="button" ng-click="sideToggle = !sideToggle"></button></li>
         <li class="menu-text">Class Schedule Optimizer</li>
         <li><a href="#default">Home</a></li>
         <li><a href="#">Links</a>
@@ -51,29 +52,32 @@
   </div>
     
   <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
-    <div class="large-2 medium-3 small-3 columns" style="padding-left:0px;background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
-      
-      <h4 align="center">Parameters</h4>
-      <hr>
-      <div ng-controller="sortableController">
-        <ul ui-sortable="sortableOptions" class="list" ng-model="list1">
-          <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">{{item}}</li>
-        </ul>
-        
+    <div ng-show="!sideToggle" id="sideBar" class="large-2 medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
+    
+      <div> <!--Sidebar Container-->
+        <h4 align="center">Parameters</h4>
         <hr>
-        <h4 align="center">Fitness Function</h4>
-        <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
+        <div ng-controller="sortableController"><span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="Parameter tooltips!">
+          <ul ui-sortable="sortableOptions" class="list" ng-model="list1" style="margin-left:0">
+            <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">{{item}}</li>
+          </ul></span>
+          <p align="center">Click on the Parameters for more information about them.</p>
+        
+          <hr>
+          <h4 align="center">Fitness Function</h4>
+          <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
+        </div>
+      
+      
+      
+        <hr>
+        <ul class="stacked-for-small small button-group" style="margin-left:0">
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Play through all iterations">Play</a>
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button">Pause</a>
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button">Back</a>
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button">Next</a>        
+        </ul>
       </div>
-      
-      
-      
-      <hr>
-      <ul class="stacked-for-small button-group">
-        <a href="#" class="button">Play</a>
-        <a href="#" class="button">Pause</a>
-        <a href="#" class="button">Back</a>
-        <a href="#" class="button">Next</a>        
-      </ul>
     </div>
      
     <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
