@@ -31,7 +31,7 @@
   <div id="main-menu" class="top-bar">
     <div class="top-bar-left">
       <ul class="dropdown menu align-left" data-dropdown-menu>
-        <li><button class="menu-icon dark" type="button" ng-click="sideToggle = !sideToggle"></button></li>
+        <li><button class="menu-icon dark" type="button" ng-click="toggle2()"></button></li>
         <li class="menu-text">Class Schedule Optimizer</li>
         <li><a href="#default">Home</a></li>
         <li><a href="#">Links</a>
@@ -52,9 +52,9 @@
   </div>
     
   <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
-    <div ng-show="!sideToggle" id="sideBar" class="large-2 medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
+    <div id="sideBar" ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
     
-      <div> <!--Sidebar Container-->
+      <div align="center"> <!--Sidebar Container-->
         <h4 align="center">Parameters</h4>
         <hr>
         <div ng-controller="sortableController"><span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="Parameter tooltips!">
@@ -64,8 +64,10 @@
           <p align="center">Click on the Parameters for more information about them.</p>
         
           <hr>
-          <h4 align="center">Fitness Function</h4>
-          <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
+          <div>
+            <h4 align="center">Fitness Function</h4>
+            <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
+          </div>
         </div>
       
       

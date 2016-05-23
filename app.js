@@ -27,16 +27,23 @@ var optimizeApp = angular.module('optimizeApp', [
     });
 })
 
-.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope, $window) {
   $scope.data = 'WE AREN\'T DEAD YET!!!!'
+  $scope.sidebarValue = 'false'
+  $scope.toggle2 = function () {
+    $scope.sidebarValue = !$scope.sidebarValue;
+  }
+  
+  $scope.sidebarValue = $window.innerWidth > 640 ? true : false;
 })
 
 .controller('alphaCtrl', function ($scope) {
   $scope.message = 'Click View 1 to view basic layout example!'
 })
 
-.controller('v1Ctrl', function ($scope) {
+.controller('v1Ctrl', function ($scope, $window) {
   $scope.message = 'View1 Message!'
+  $scope.x = $window.innerWidth;
 })
 
 .controller('v2Ctrl', function ($scope) {
