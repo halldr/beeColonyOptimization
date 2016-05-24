@@ -32,10 +32,22 @@ var optimizeApp = angular.module('optimizeApp', [
   $scope.sidebarValue = 'false'
   $scope.toggle2 = function () {
     $scope.sidebarValue = !$scope.sidebarValue;
-  }
-  
-  $scope.sidebarValue = $window.innerWidth > 640 ? true : false;
+  };
+  $scope.x = $window.innerWidth
 })
+
+.directive('resizer', ['$window', function ($window) {
+    return {
+        restrict: 'A',
+        link: function (scope, elem, attrs) {      
+            angular.element($window).on('resize', function () {
+                scope.$apply(function(){
+                    scope.sidebarValue = $window.innerWidth > 640 ? true : false;
+                })
+            });
+        }
+    }
+}])
 
 .controller('alphaCtrl', function ($scope) {
   $scope.message = 'Click View 1 to view basic layout example!'
@@ -50,9 +62,6 @@ var optimizeApp = angular.module('optimizeApp', [
   $scope.message = 'View2 Message!'
   $scope.alertMessage = 'ALERTTTT!'
   $scope.toggleValue = 'false'
-  $scope.toggle1 = function () {
-    $scope.toggleValue = !$scope.toggleValue;
-  }
 })
 
 .controller('testViewCtrl', function ($scope) {

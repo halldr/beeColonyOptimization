@@ -30,11 +30,10 @@
   
   <div id="main-menu" class="top-bar">
     <div class="top-bar-left">
-      <ul class="dropdown menu align-left" data-dropdown-menu>
+      <ul class="menu align-left">
         <li><button class="menu-icon dark" type="button" ng-click="toggle2()"></button></li>
-        <li class="menu-text">Class Schedule Optimizer</li>
-        <li><a href="#default">Home</a></li>
-        <li><a href="#">Links</a>
+        <li class="menu-text"><a href="#default" style="padding:0px">Class Schedule Optimizer</a></li>
+        <li>
           <ul class="menu">
             <li><a href="#view1">Schedule</a></li>
             <li><a href="#view2">Results</a></li>
@@ -52,7 +51,7 @@
   </div>
     
   <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
-    <div id="sideBar" ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
+    <div id="sideBar" resizer ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
     
       <div align="center"> <!--Sidebar Container-->
         <h4 align="center">Parameters</h4>
@@ -69,8 +68,6 @@
             <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
           </div>
         </div>
-      
-      
       
         <hr>
         <ul class="stacked-for-small small button-group" style="margin-left:0">
