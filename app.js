@@ -36,32 +36,17 @@ var optimizeApp = angular.module('optimizeApp', [
   $scope.x = $window.innerWidth
 })
 
-.directive('resizer', ['$window', function ($window) {
-    return {
-        restrict: 'A',
-        link: function (scope, elem, attrs) {      
-            angular.element($window).on('resize', function () {
-                scope.$apply(function(){
-                    scope.sidebarValue = $window.innerWidth > 640 ? true : false;
-                })
-            });
-        }
-    }
-}])
-
 .controller('alphaCtrl', function ($scope) {
   $scope.message = 'Click View 1 to view basic layout example!'
 })
 
 .controller('v1Ctrl', function ($scope, $window) {
   $scope.message = 'View1 Message!'
-  $scope.x = $window.innerWidth;
 })
 
 .controller('v2Ctrl', function ($scope) {
   $scope.message = 'View2 Message!'
   $scope.alertMessage = 'ALERTTTT!'
-  $scope.toggleValue = 'false'
 })
 
 .controller('testViewCtrl', function ($scope) {
@@ -77,4 +62,19 @@ var optimizeApp = angular.module('optimizeApp', [
     $scope.sortableOptions = {
         connectWith: '.connectedList'
     };
-});
+})
+
+// This directive dynamically checks for screen size on resize,
+// Called resizer. changes binary sidebarValue at 640px width breakpoint.
+.directive('resizer', ['$window', function ($window) {
+    return {
+        restrict: 'A',
+        link: function ($scope, elem, attrs) {      
+            angular.element($window).on('resize', function () {
+                $scope.$apply(function(){
+                    $scope.sidebarValue = $window.innerWidth > 640 ? true : false;
+                })
+            });
+        }
+    }
+}]);
