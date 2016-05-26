@@ -1,37 +1,15 @@
 <!--view2.html-->
 
 <div id="graphs" class="row align-middle">
-  <div class="media-object stack-for-small">
+  <div ng-repeat="result in results" class="media-object stack-for-small">
     <div class="media-object-section middle align-self-center"> 
       <div class="thumbnail">
-        <image src="views/pictures/fakeGraph1.png"/>
+        <image src="{{result.image}}"/>
       </div>
     </div>
-    <div class="media-object-section main-section">
-      <h3 align="center">Plans Scatter Plot</h3>  
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </div>
-  <div class="media-object stack-for-small">
-    <div class="media-object-section middle">
-      <div class="thumbnail">
-        <image src="views/pictures/fakeGraph2.png"/>
-      </div>
-    </div>
-    <div class="media-object-section main-section">
-      <h3 align="middle">Optimum Plan Fitness</h3>  
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-  </div>
-  <div class="media-object stack-for-small">
-    <div class="media-object-section middle">
-      <div class="thumbnail">
-        <image src="views/pictures/fakeGraph3.png"/>
-      </div>
-    </div>
-    <div class="media-object-section main-section">
-      <h3 align="center">Workload by Quarter</h3>  
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="media-object-section main-section callout">
+      <h3 align="center">{{result.name}}</h3>  
+      <p>{{result.info}}</p>
     </div>
   </div>
 </div>
