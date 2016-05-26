@@ -18,22 +18,27 @@ var optimizeApp = angular.module('optimizeApp', [
       templateUrl: 'views/view2.html',
       controller: 'v2Ctrl'
     })
-    .when('/testView', {
-      templateUrl: 'views/testView.html',
-      controller: 'testViewCtrl'
+    .when('/view3', {
+      templateUrl: 'views/view3.html',
+      controller: 'view3Ctrl'
     })
     .otherwise({
       redirectTo:'/default'
     });
 })
 
-.controller('mainCtrl', function($scope, $window) {
+.controller('mainCtrl', function($scope, $window, $location) {
   $scope.data = 'WE AREN\'T DEAD YET!!!!'
   $scope.sidebarValue = 'false'
-  $scope.toggle2 = function () {
+  // toggle2 toggles the sidebar on and off
+  $scope.toggle2 = function () { 
     $scope.sidebarValue = !$scope.sidebarValue;
   };
-  $scope.x = $window.innerWidth
+  // isActive function returns true if the current path and expected path are same
+  // (this is for the menu links)
+  $scope.isActive = function(viewLocation) {
+    return viewLocation === $location.path();
+  }
 })
 
 .controller('alphaCtrl', function ($scope) {
@@ -49,8 +54,8 @@ var optimizeApp = angular.module('optimizeApp', [
   $scope.alertMessage = 'ALERTTTT!'
 })
 
-.controller('testViewCtrl', function ($scope) {
-  $scope.message = 'TestView Message!'
+.controller('view3Ctrl', function ($scope) {
+  $scope.message = 'view3 Message!'
 })
 
 .controller('sortableController', function ($scope) {

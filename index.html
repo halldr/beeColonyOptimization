@@ -34,15 +34,15 @@
         <li><button class="menu-icon dark" type="button" ng-click="toggle2()"></button></li>
         <li class="menu-text"><a href="#default" style="padding:0px">Class Schedule Optimizer</a></li>
         <li>
-          <ul class="menu">
-            <li><a href="#view1">Schedule</a></li>
-            <li><a href="#view2">Results</a></li>
-            <li><a href="#testView">About</a></li>
+          <ul class="menu"> <!--Menu Buttons-->
+            <li ng-class="{active: isActive('/view1')}"><a href="#view1" id="schedule">Schedule</a></li>
+            <li ng-class="{active: isActive('/view2')}"><a href="#view2" id="results">Results</a></li>
+            <li ng-class="{active: isActive('/view3')}"><a href="#view3" id="about">About</a></li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="top-bar-right">
+    <div class="top-bar-right show-for-large">
       <ul class="menu align-right">
         <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
         <li><button type="button" class="button">Search</button></li>
@@ -50,7 +50,7 @@
     </div>
   </div>
     
-  <div class="expanded row" id="row1" style="height:90vh"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
+  <div class="expanded row side-height" id="row1"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
     <div id="sideBar" resizer ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
     
       <div align="center"> <!--Sidebar Container-->
@@ -79,7 +79,7 @@
       </div>
     </div>
      
-    <div ng-view class="columns" style="margin:5px"></div> <!--Dynamic view container-->
+    <div ng-view class="columns" style="margin:10px"></div> <!--Dynamic view container-->
      
   </div> <!--row1-->
   
