@@ -8,3 +8,13 @@
 .side-height {
   min-height: calc(100vh - 100px);
 }
+.tab :hover{
+    background-color: rgba(21,153,232,.6);
+    color:white;
+}
+.viewContainer{
+   height: calc(100vh - 100px);
+   overflow-y: auto;
+   
+}
+

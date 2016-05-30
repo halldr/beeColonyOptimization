@@ -36,9 +36,9 @@
         <li class="menu-text"><a href="#default" style="padding:0px">Class Schedule Optimizer</a></li>
         <li>
           <ul class="menu"> <!--Menu Buttons-->
-            <li ng-class="{active: isActive('/view1')}"><a href="#view1" id="schedule">Schedule</a></li>
-            <li ng-class="{active: isActive('/view2')}"><a href="#view2" id="results">Results</a></li>
-            <li ng-class="{active: isActive('/view3')}"><a href="#view3" id="about">About</a></li>
+            <li ng-class="{active: isActive('/view1')}" class="tab"><a href="#view1" id="schedule">Schedule</a></li>
+            <li ng-class="{active: isActive('/view2')}" class="tab"><a href="#view2" id="results">Results</a></li>
+            <li ng-class="{active: isActive('/view3')}" class="tab"><a href="#view3" id="about">About</a></li>
           </ul>
         </li>
       </ul>
@@ -57,7 +57,7 @@
       <div align="center"> <!--Sidebar Container-->
         <h4 align="center">Parameters</h4>
         <hr>
-        <div ng-controller="sortableController"><span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="Parameter tooltips!">
+        <div ng-controller="sortableController"><span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="Sort these in order of importance (Most important on top). The most important paramenters will be weighted more in th optimization process.">
           <ul ui-sortable="sortableOptions" class="list" ng-model="list1" style="margin-left:0">
             <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">{{item}}</li>
           </ul></span>
@@ -65,6 +65,7 @@
         
           <hr>
           <div>
+             <span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="This function is used to indicate how good the schedule is">
             <h4 align="center">Fitness Function</h4>
             <p align="center">4{{list1[0].substring(list1[0].length-3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length-3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length-3, list1[2].length)}} + {{list1[3].substring(list1[3].length-3, list1[3].length)}}</p>
           </div>
@@ -80,7 +81,7 @@
       </div>
     </div>
      
-    <div ng-view class="columns" style="margin:10px"></div> <!--Dynamic view container-->
+    <div ng-view class="columns viewContainer" style="margin:10px"></div> <!--Dynamic view container-->
      
   </div> <!--row1-->
   
