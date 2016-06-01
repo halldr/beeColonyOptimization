@@ -35,6 +35,19 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
+.buttonAlert{
+    color:rgb(255, 152, 23);
+    background-color:#e6e6e6;
+    padding:7px;
+    border-radius:5px;
+    
+}
+.fitnessFunction :hover{
+    border-left:4px solid black;
+    border-right:4px solid black;
+}
+
+
 
 ::-webkit-scrollbar {
     width: 12px;
