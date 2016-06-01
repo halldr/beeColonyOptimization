@@ -15,6 +15,24 @@
 .viewContainer{
    height: calc(100vh - 100px);
    overflow-y: auto;
-   
+}
+@keyframes flash{
+    0% { background-color:rgb(230,230,230)}
+    10% { background-color:rgba(255, 152, 23,.1)}
+    20% { background-color:rgba(255, 152, 23,.2)}
+    30% { background-color:rgba(255, 152, 23,.3)}
+    35% { background-color:rgba(255, 152, 23,.5)}
+    50% { background-color:rgba(255, 152, 23,.6)}
+    65% { background-color:rgba(255, 152, 23,.5)}
+    80% { background-color:rgba(255, 152, 23,.3)}
+    85% { background-color:rgba(255, 152, 23,.2)}
+    90% { background-color:rgba(255, 152, 23,.1)}
+    100% { background-color:rgb(230,230,230)}
+}
+
+.alert{
+    animation-name:flash;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
