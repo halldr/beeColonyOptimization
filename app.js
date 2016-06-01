@@ -34,6 +34,12 @@ var optimizeApp = angular.module('optimizeApp', [
   $scope.toggle2 = function () { 
     $scope.sidebarValue = !$scope.sidebarValue;
   };
+  //redirects to Schedule and sets results to flash, will put in more here when 
+  //backend works
+  $scope.showResults=function(){      
+      var results=document.getElementById("results");
+      results.classList.add("alert");      
+  };
   // isActive function returns true if the current path and expected path are same
   // (this is for the menu links)
   $scope.isActive = function(viewLocation) {
