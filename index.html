@@ -55,13 +55,31 @@
     <div id="sideBar" resizer ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
     
       <div align="center"> <!--Sidebar Container-->
-        <h4 align="center">Parameters</h4>
+        <br>
+        <button type="button" style="margin:0px" class="expanded button" ng-click="paramCalloutToggle = !paramCalloutToggle"><h4 align="center">Parameters</h4></button>
         <hr>
-        <div ng-controller="sortableController"><span data-tooltip aria-haspopup="false" class="has-tip right" data-disable-hover="true" tabindex="1" title="Sort these in order of importance (Most important on top). The most important paramenters will be weighted more in th optimization process.">
+        <div>
+        <div class="success callout" ng-show="paramCalloutToggle" data-closable>
+          <h5>Parameter Instructions</h5>
+          Drag and Drop your preferences, on the left, in the order of most important value on top, to least important on the bottom.
+          <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        </div>
+        <!--Sortable Parameters - ng-repeat loop-->
+        <div ng-controller="sortableController">
           <ul ui-sortable="sortableOptions" class="list" ng-model="list1" style="margin-left:0">
-            <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">{{item}}</li>
-          </ul></span>
-          <p align="center">Click on the Parameters for more information about them.</p>
+            <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">
+              <div class="row">
+                <div class="shrink columns"><i class="fi-arrow-up" style="font-size:13px"></i><br>
+                <i class="fi-arrow-down" style="font-size:13px"></i></div>
+                <div class="column align-self-middle">
+                  {{item}}
+                </div>
+              </div>
+            </li>
+          </ul>
         
           <hr>
           <div>
@@ -73,10 +91,10 @@
       
         <hr>
         <ul class="stacked-for-small small button-group" style="margin-left:0">
-          <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Play through all iterations" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
-          <a href="#" data-tooltip data-options="hover_delay:5000ms" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button"><i class="fi-pause" style="font-size:15px"></i></a>
-          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button"><i class="fi-previous" style="font-size:15px"></i></a>
-          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip right" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button"><i class="fi-next" style="font-size:15px"></i></a>        
+          <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Play through all iterations" class="button" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
+          <a href="#" data-tooltip class="button has-tip" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button"><i class="fi-pause" style="font-size:15px"></i></a>
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button"><i class="fi-previous" style="font-size:15px"></i></a>
+          <a href="#" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button"><i class="fi-next" style="font-size:15px"></i></a>        
         </ul>
       </div>
     </div>
