@@ -1,120 +1,113 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="optimizeApp" class="no-js" dir="ltr">
-    <head>
+  <head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Class Schedule Optimizer</title>
-        <link rel="stylesheet" href="css/foundation.css">
-        <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
-        <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <script src="js/jquery.js"></script>
-        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
-        <script src="js/angular/angular.js"></script>
-        <script src="js/angular/angular-route.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
-        <script src="js/angular/angular-resource.js"></script>
-        <script src="js/foundation.js"></script>
-        <script src="app.js"></script>
-    </head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule Optimizer</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+    <script src="js/angular/angular-resource.js"></script>
+    <script src="js/foundation.js"></script>
+    <script src="app.js"></script>
+  </head>
 
-    <body ng-controller="mainCtrl">
+  <body ng-controller="mainCtrl">
 
-        <div class id="main"> <!--Main container-->
+  <div class id="main"> <!--Main container-->
 
-            <!--div class="title-bar" data-responsive-toggle="sideBar" data-hide-for="medium" style="color:black;background-color:rgb(230,230,230)">
-              <button class="menu-icon dark" type="button" data-toggle></button>
-              <div class="title-bar-title">Menu</div>
-            </div-->
+    <div id="main-menu" class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu align-left">
+          <li><button class="menu-icon dark" type="button" ng-click="toggle2()"></button></li>
+          <li class="menu-text"><a href="#default" style="padding:0px">Class Schedule Optimizer</a></li>
+          <li>
+            <ul class="menu"> <!--Menu Buttons-->
+              <li ng-class="{active: isActive('/view1')}" class="tab"><a href="#view1" id="schedule">Schedule</a></li>
+              <li ng-class="{active: isActive('/view2')}" class="tab"><a href="#view2" id="results" onclick='document.getElementsByClassName("alert")[0].classList.remove("alert");'>Results</a></li>
+              <li ng-class="{active: isActive('/view3')}" class="tab"><a href="#view3" id="about">About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right show-for-large">
+        <ul class="menu align-right">
+          <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
+          <li><button type="button" class="button">Search</button></li>
+        </ul>
+      </div>
+    </div>
+      
+    <div class="expanded row side-height" id="row1"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
+      <div id="sideBar" resizer ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
 
-            <div id="main-menu" class="top-bar">
-                <div class="top-bar-left">
-                    <ul class="menu align-left">
-                        <li><button class="menu-icon dark" type="button" ng-click="toggle2()"></button></li>
-                        <li class="menu-text"><a href="#default" style="padding:0px">Class Schedule Optimizer</a></li>
-                        <li>
-                            <ul class="menu"> <!--Menu Buttons-->
-                                <li ng-class="{active: isActive('/view1')}" class="tab"><a href="#view1" id="schedule">Schedule</a></li>
-                                <li ng-class="{active: isActive('/view2')}" class="tab"><a href="#view2" id="results" onclick='document.getElementsByClassName("alert")[0].classList.remove("alert");'>Results</a></li>
-                                <li ng-class="{active: isActive('/view3')}" class="tab"><a href="#view3" id="about">About</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="top-bar-right show-for-large">
-                    <ul class="menu align-right">
-                        <li><input type="text" placeholder="Search" ng-model="searchBox"></li>
-                        <li><button type="button" class="button">Search</button></li>
-                    </ul>
-                </div>
+        <div align="center"> <!--Sidebar Container-->
+          <br>
+          <button type="button" style="margin:0px" class="expanded button" ng-click="paramCalloutToggle = !paramCalloutToggle"><h4 align="center">Parameters</h4></button>
+          <hr>
+          <div>
+            <div class="success callout" ng-show="paramCalloutToggle" data-closable>
+              <h5>Parameter Instructions</h5>
+              Drag and Drop your preferences, on the left, in the order of most important value on top, to least important on the bottom.
+              <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-
-            <div class="expanded row side-height" id="row1"> <!--Wrapper:Row1 pulls down 90% of window and expands across rest of width-->
-                <div id="sideBar" resizer ng-class="{'hide':!sidebarValue}" class="medium-3 small-3 columns" style="background-color:rgb(240,240,240)"> <!--Sidebar Column Div-->
-
-                    <div align="center"> <!--Sidebar Container-->
-                        <br>
-                        <button type="button" style="margin:0px" class="expanded button" ng-click="paramCalloutToggle = !paramCalloutToggle"><h4 align="center">Parameters</h4></button>
-                        <hr>
-                        <div>
-                            <div class="success callout" ng-show="paramCalloutToggle" data-closable>
-                                <h5>Parameter Instructions</h5>
-                                Drag and Drop your preferences, on the left, in the order of most important value on top, to least important on the bottom.
-                                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        </div>
-                        <!--Sortable Parameters - ng-repeat loop-->
-                        <div ng-controller="sortableController">
-                            <ul ui-sortable="sortableOptions" class="list" ng-model="list1" style="margin-left:0">
-                                <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">
-                                    <div class="row">
-                                        <div class="shrink columns"><i class="fi-arrow-up" style="font-size:13px"></i><br>
-                                            <i class="fi-arrow-down" style="font-size:13px"></i></div>
-                                        <div class="column align-self-middle">
-                                            {{item}}
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <hr>
-                            <div >
-                                <span data-tooltip aria-haspopup="true" class="has-tip right fitnessFunction" data-disable-hover="false" tabindex="1" title="This function is used to indicate how good the schedule is">
-                                    <h4 align="center" >Fitness Function</h4>
-                                    <p align="center" >4{{list1[0].substring(list1[0].length - 3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length - 3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length - 3, list1[2].length)}} + {{list1[3].substring(list1[3].length - 3, list1[3].length)}}</p>
-                            </div>
-                        </div>
-
-                        <hr>
-                        <ul class="stacked-for-small small button-group" style="margin-left:0">
-                            <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Play through all iterations" class="button" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
-                            <a href="#" data-tooltip class="button has-tip" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button" onclick='this.getElementsByTagName("i")[0].classList.toggle("buttonAlert");'><i class="fi-pause" style="font-size:15px" ></i></a>
-                            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button" ><i class="fi-previous" style="font-size:15px"></i></a>
-                            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button" ><i class="fi-next" style="font-size:15px"></i></a>        
-                        </ul>
-                    </div>
+          </div>
+          <!--Sortable Parameters - ng-repeat loop-->
+          <div ng-controller="sortableController">
+            <ul ui-sortable="sortableOptions" class="list" ng-model="list1" style="margin-left:0">
+              <li ng-repeat="item in list1" class="expanded hollow secondary button" style="margin-bottom:3px">
+                <div class="row">
+                  <div class="shrink columns"><i class="fi-arrow-up" style="font-size:13px"></i><br>
+                    <i class="fi-arrow-down" style="font-size:13px"></i>
+                  </div>
+                  <div class="column align-self-middle">
+                    {{item}}
+                  </div>
                 </div>
+              </li>
+            </ul>
 
-                <div ng-view class="columns viewContainer" style="margin:10px"></div> <!--Dynamic view container-->
+            <hr>
+            <div>
+              <span data-tooltip aria-haspopup="true" class="has-tip right fitnessFunction" data-disable-hover="false" tabindex="1" title="This function is used to indicate how good the schedule is">
+              <h4 align="center" >Fitness Function</h4>
+              <p align="center" >4{{list1[0].substring(list1[0].length - 3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length - 3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length - 3, list1[2].length)}} + {{list1[3].substring(list1[3].length - 3, list1[3].length)}}</p>
+            </div>
+          </div>
 
-            </div> <!--row1-->
+          <hr>
+          <ul class="stacked-for-small small button-group" style="margin-left:0">
+            <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Play through all iterations" class="button" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
+            <a href="#" data-tooltip class="button has-tip" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button" onclick='this.getElementsByTagName("i")[0].classList.toggle("buttonAlert");'><i class="fi-pause" style="font-size:15px" ></i></a>
+            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button" ><i class="fi-previous" style="font-size:15px"></i></a>
+            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button" ><i class="fi-next" style="font-size:15px"></i></a>  
+          </ul>
+        </div>
+      </div>
 
-            <!--<div id="version">
-                Version 0.1
-            </div>-->
+      <div ng-view class="columns viewContainer" style="margin:10px"></div> <!--Dynamic view container-->
+    </div> <!--row1-->
+
+    <!--<div id="version">
+      Version 0.1
+    </div>-->
 
 
-        </div> <!--Main container-->
+  </div> <!--Main container-->
 
-        <script>
-                    $(document).foundation(); // Initializes foundation's javascript, leave this here.
+  <script>
+    $(document).foundation(); // Initializes foundation's javascript, leave this here.
+  </script> 
 
-
-        </script> 
-
-    </body>
+  </body>
 </html>
