@@ -35,7 +35,7 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
-//custom scrollbars for webkit browsers
+
 ::-webkit-scrollbar {
     width: 12px;
 }
