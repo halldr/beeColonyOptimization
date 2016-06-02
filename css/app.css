@@ -42,7 +42,7 @@
     border-radius:5px;
     
 }
-.fitnessFunction :hover{
+.fitnessFunction {
     border-left:4px solid black;
     border-right:4px solid black;
 }

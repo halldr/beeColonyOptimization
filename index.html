@@ -78,8 +78,7 @@
             </ul>
 
             <hr>
-            <div>
-              <span data-tooltip aria-haspopup="true" class="has-tip right fitnessFunction" data-disable-hover="false" tabindex="1" title="This function is used to indicate how good the schedule is">
+            <div ng-class="{fitnessFunction: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
               <h4 align="center" >Fitness Function</h4>
               <p align="center" >4{{list1[0].substring(list1[0].length - 3, list1[0].length)}} + 3{{list1[1].substring(list1[1].length - 3, list1[1].length)}} + 2{{list1[2].substring(list1[2].length - 3, list1[2].length)}} + {{list1[3].substring(list1[3].length - 3, list1[3].length)}}</p>
             </div>
