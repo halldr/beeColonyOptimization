@@ -51,7 +51,7 @@
 
         <div align="center"> <!--Sidebar Container-->
           <br>
-          <button type="button" style="margin:0px" class="expanded button" ng-click="paramCalloutToggle = !paramCalloutToggle"><h4 align="center">Parameters</h4></button>
+          <button title="Click me for parameter info!" style="margin:0px" class="expanded button has-tip right" ng-click="paramCalloutToggle = !paramCalloutToggle" data-tooltip aria-haspopup="true"><h4 align="center">Parameters</h4></button></span>
           <hr>
           <div>
             <div class="success callout" ng-show="paramCalloutToggle" data-closable>
@@ -85,16 +85,16 @@
           </div>
 
           <hr>
-          <ul class="stacked-for-small small button-group" style="margin-left:0">
-            <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Play through all iterations" class="button" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
-            <a href="#" data-tooltip class="button has-tip" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" class="button" onclick='this.getElementsByTagName("i")[0].classList.toggle("buttonAlert");'><i class="fi-pause" style="font-size:15px" ></i></a>
-            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Return to the previous iteration" class="button" ><i class="fi-previous" style="font-size:15px"></i></a>
-            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Step through to the next iteration" class="button" ><i class="fi-next" style="font-size:15px"></i></a>  
+          <ul class="stacked-for-small small button-group" style="margin-left:0px">
+            <a href="#view1" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Play through all iterations" ng-click="showResults()"><i class="fi-play" style="font-size:15px"></i></a>
+            <a href="#" data-tooltip class="button has-tip" data-disable-hover="false" tabindex="1" title="Pause the iteration sequence" onclick='this.getElementsByTagName("i")[0].classList.toggle("buttonAlert");'><i class="fi-pause" style="font-size:15px" ></i></a>
+            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Return to the previous iteration"><i class="fi-previous" style="font-size:15px"></i></a>
+            <a href="#view2" data-tooltip aria-haspopup="true" class="button has-tip" data-disable-hover="false" tabindex="1" title="Step through to the next iteration"><i class="fi-next" style="font-size:15px"></i></a>  
           </ul>
         </div>
       </div>
 
-      <div ng-view class="columns viewContainer" style="margin:10px"></div> <!--Dynamic view container-->
+      <div ng-view class="columns viewContainer" style="margin:15px"></div> <!--Dynamic view container-->
     </div> <!--row1-->
 
     <!--<div id="version">

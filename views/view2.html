@@ -1,7 +1,8 @@
 <!--view2.html-->
 
-<div id="graphs" class="row align-middle" style="margin:1px">
-  <div ng-repeat="result in results" class="media-object stack-for-small">
+<div id="graphs" class="row align-middle" style="margin-right:1px">
+  <div ng-repeat="result in results" class="callout" style="background-color:rgb(240,240,240)">
+  <div class="media-object stack-for-small stack-for-medium">
     <div class="media-object-section middle align-self-center"> 
       <div class="thumbnail">
         <image src="{{result.image}}"/>
@@ -11,5 +12,6 @@
       <h3 align="center">{{result.name}}</h3>  
       <p>{{result.info}}</p>
     </div>
+  </div>
   </div>
 </div>
